@@ -1,14 +1,16 @@
 package hello.hellospring.service;
 
 import hello.hellospring.domain.Member;
-import hello.hellospring.repository.MemoryMemberRepository;
 import hello.hellospring.repository.MemberRepository;
+
 import java.util.List;
 import java.util.Optional;
+
 
 public class MemberService {
 
     private final MemberRepository memberRepository;
+
 
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
@@ -24,7 +26,7 @@ public class MemberService {
     }
 
     private void validateDuplicateMember(Member member) {
-        //중복처리
+        //중복처리, 람다식
         memberRepository.findByname(member.getName())
                 .ifPresent(m -> {
                     throw new IllegalStateException("중복된 회원입니다.");
