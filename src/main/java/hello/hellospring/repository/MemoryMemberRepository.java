@@ -2,6 +2,7 @@ package hello.hellospring.repository;
 
 import hello.hellospring.domain.Member;
 
+import javax.sql.DataSource;
 import java.util.*;
 
 public class MemoryMemberRepository implements MemberRepository{
@@ -21,7 +22,7 @@ public class MemoryMemberRepository implements MemberRepository{
     }
 
     @Override
-    public Optional<Member> findByname(String name) {
+    public Optional<Member> findByName(String name) {
         return store.values().stream()
                 .filter(member -> member.getName().equals(name))
                  .findAny();

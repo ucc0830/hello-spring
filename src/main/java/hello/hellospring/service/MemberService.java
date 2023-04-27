@@ -27,7 +27,7 @@ public class MemberService {
 
     private void validateDuplicateMember(Member member) {
         //중복처리, 람다식
-        memberRepository.findByname(member.getName())
+        memberRepository.findByName(member.getName())
                 .ifPresent(m -> {
                     throw new IllegalStateException("중복된 회원입니다.");
                 });
