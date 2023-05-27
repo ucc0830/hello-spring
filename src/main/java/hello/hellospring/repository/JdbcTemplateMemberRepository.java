@@ -48,7 +48,7 @@ public class JdbcTemplateMemberRepository implements MemberRepository {
     }
 
     @Override
-    public List<Member> fidnAll() {
+    public List<Member> findAll() {
         return jdbcTemplate.query("select * from member", memberRowMapper());
     }
 
