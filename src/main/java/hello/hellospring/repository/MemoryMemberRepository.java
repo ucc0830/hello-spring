@@ -2,12 +2,11 @@ package hello.hellospring.repository;
 
 import hello.hellospring.domain.Member;
 
-import javax.sql.DataSource;
 import java.util.*;
 
 public class MemoryMemberRepository implements MemberRepository{
 
-    private static Map<Long, Member> store = new HashMap<>();
+    private static final Map<Long, Member> store = new HashMap<>();
     private static long sequence = 0L;
     @Override
     public Member save(Member member) {
